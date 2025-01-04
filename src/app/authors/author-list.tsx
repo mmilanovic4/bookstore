@@ -1,6 +1,6 @@
 import prisma from "@/lib/db";
 import Link from "next/link";
-import DeleteButton from "./delete-button";
+import ButtonDelete from "./button-delete";
 
 export default async function AuthorList() {
   const authors = await prisma.author.findMany({
@@ -16,13 +16,13 @@ export default async function AuthorList() {
   const total = await prisma.author.count();
   return (
     <>
-      <header className="flex items-center justify-between mb-4 max-w-80">
+      <header className="mb-4 flex max-w-80 items-center justify-between">
         <h1>
           <strong>Authors</strong> ({total})
         </h1>
         <Link href="/authors/add">Add new</Link>
       </header>
-      <ul className="inline-flex flex-col gap-2 max-w-80">
+      <ul className="inline-flex max-w-80 flex-col gap-2">
         {authors.map((author) => {
           return (
             <li
@@ -34,7 +34,7 @@ export default async function AuthorList() {
               </div>
               <div className="flex items-center gap-2">
                 <Link href={`/authors/${author.id}`}>Edit</Link>
-                <DeleteButton id={author.id} />
+                <ButtonDelete id={author.id} />
               </div>
             </li>
           );

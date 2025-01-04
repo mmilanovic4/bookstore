@@ -28,7 +28,7 @@ export default function AuthorForm(props: AuthorFormProps) {
       <label className="inline-flex items-center justify-between py-2">
         <span className="w-32">First name</span>
         <input
-          className="border border-zinc-600 rounded px-2 py-1 h-10 transition"
+          className="h-10 rounded border border-zinc-600 px-2 py-1 transition"
           name="firstName"
           defaultValue={"data" in props ? props.data.firstName : ""}
         />
@@ -36,7 +36,7 @@ export default function AuthorForm(props: AuthorFormProps) {
       <label className="inline-flex items-center justify-between py-2">
         <span className="w-32">Last name</span>
         <input
-          className="border border-zinc-600 rounded px-2 py-1 h-10 transition"
+          className="h-10 rounded border border-zinc-600 px-2 py-1 transition"
           name="lastName"
           defaultValue={"data" in props ? props.data.lastName : ""}
         />

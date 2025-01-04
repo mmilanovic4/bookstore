@@ -11,10 +11,11 @@ type AuthorEditProps = {
 };
 
 export default async function AuthorEdit(props: AuthorEditProps) {
+  const { id } = await props.params;
   const author = await prisma.author.findUnique({
     where: {
-      id: Number(props.params.id),
+      id: Number(id),
     },
   });
-  return <AuthorForm action={update} data={author} id={props.params.id} />;
+  return <AuthorForm action={update} data={author} id={id} />;
 }

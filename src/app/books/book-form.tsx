@@ -28,7 +28,7 @@ export default function BookForm(props: BookFormProps) {
       <label className="inline-flex items-center justify-between py-2">
         <span className="w-32">Title</span>
         <input
-          className="border border-zinc-600 rounded px-2 py-1 h-10 transition"
+          className="h-10 rounded border border-zinc-600 px-2 py-1 transition"
           name="title"
           defaultValue={"data" in props ? props.data.title : ""}
         />
@@ -36,7 +36,7 @@ export default function BookForm(props: BookFormProps) {
       <label className="inline-flex items-center justify-between py-2">
         <span className="w-32 min-w-32">Author</span>
         <select
-          className="border border-zinc-600 rounded px-2 py-1 h-10 transition w-full"
+          className="h-10 w-full appearance-none rounded border border-zinc-600 px-2 py-1 transition"
           name="author"
           defaultValue={"data" in props ? props.data.author.id : ""}
         >

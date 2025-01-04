@@ -1,6 +1,6 @@
 import prisma from "@/lib/db";
 import Link from "next/link";
-import DeleteButton from "./delete-button";
+import ButtonDelete from "./button-delete";
 
 export default async function BookList() {
   const books = await prisma.book.findMany({
@@ -18,7 +18,7 @@ export default async function BookList() {
   const total = await prisma.book.count();
   return (
     <>
-      <header className="flex items-center justify-between mb-4 max-w-80">
+      <header className="mb-4 flex max-w-80 items-center justify-between">
         <h1>
           <strong>Books</strong> ({total})
         </h1>
@@ -37,7 +37,7 @@ export default async function BookList() {
               </div>
               <div className="flex items-center gap-2">
                 <Link href={`/books/${book.id}`}>Edit</Link>
-                <DeleteButton id={book.id} />
+                <ButtonDelete id={book.id} />
               </div>
             </li>
           );

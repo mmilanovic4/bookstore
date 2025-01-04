@@ -11,9 +11,10 @@ type BookEditProps = {
 };
 
 export default async function BookEdit(props: BookEditProps) {
+  const { id } = await props.params;
   const book = await prisma.book.findUnique({
     where: {
-      id: props.params.id,
+      id,
     },
     select: {
       id: true,
@@ -26,12 +27,5 @@ export default async function BookEdit(props: BookEditProps) {
       createdAt: "desc",
     },
   });
-  return (
-    <BookForm
-      action={update}
-      authors={authors}
-      data={book}
-      id={props.params.id}
-    />
-  );
+  return <BookForm action={update} authors={authors} data={book} id={id} />;
 }
